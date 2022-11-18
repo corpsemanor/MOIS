@@ -1,0 +1,38 @@
+sc_node_not_relation->concept_country;;
+sc_node_not_relation->concept_population;;
+sc_node_not_relation->concept_multiplicity;;
+sc_node_not_relation->concept_locality;;
+sc_node_not_relation->concept_agriculture;;
+
+sc_node_norole_relation->concept_used_constants;;
+sc_node_norole_relation->sctext_translation;;
+
+
+concept_town=>nrel_main_idtf:[town](*<-lang_eng;;*);;
+concept_town=>nrel_main_idtf:[город](*<-lang_rus;;*);;
+
+definition->...
+(*
+    ->rrel_key_sc_element: concept_town;;
+    <=nrel_sc_text_translation: ... (*->rrel_example:[Город - относительно крупный населенный пункт, население которого занято, как правило, вне сельского хозяйства.](*<-lang_ru;;*);;*);;
+    =>nrel_main_idtf:[Определение(Город)](*<-lang_ru;;*);;
+    =>nrel_using_constants:
+    {
+        concept_locality;
+        concept_population;
+        concept_agriculture
+    };;
+*);;
+
+statement->...
+(*
+    ->rrel_key_sc_element: concept_country;;
+    <=nrel_sc_text_translation: ... (*->rrel_example:[В каждой стране есть множество городов.](*<-lang_ru;;*);;*);;
+    =>nrel_main_idtf:[Утверждение(страна, множество)](*<-lang_ru;;*);;
+    =>nrel_using_constants:
+    {
+        concept_country;
+        concept_multiplicity
+    };;
+*);;
+concept_town=>nrel_inclusion:concept_territory;;
