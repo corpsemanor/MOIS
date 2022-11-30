@@ -1,0 +1,57 @@
+LR_4_3_country=[*
+sc_node_not_relation->concept_country;;
+sc_node_not_relation->concept_territory;;
+sc_node_not_relation->concept_all_other_territory;;
+
+//sc_node_norole_relation->nrel_universality;;
+sc_node_norole_relation->nrel_linked_variables;;
+//sc_node_norole_relation->nrel_equality;;
+//sc_node_norole_relation->nrel_existance;;
+//sc_node_norole_relation->nrel_implication;;
+sc_node_norole_relation->nrel_distinguished_by_historical_commonality;;
+sc_node_norole_relation->nrel_distinguished_by_political_isolation;;
+sc_node_norole_relation->is;;
+
+sc_node_role_relation->rrel_if;;
+sc_node_role_relation->rrel_else;;
+
+nrel_universality -> ...
+(*
+    -> rrel_linked_variables: ...
+    (*
+        <-_x;;
+        <-_y;;
+        <-_k;;
+    *);;
+        ->...
+        (*
+            <-nrel_equality;;
+            ->...
+            (*
+                <-concept_country(*_->_x;;*);;
+                <-_x;;
+                <-concept_territory(*_->_y;;*);;
+                <-_y;;
+                <-concept_all_other_territory(*_->_k;;*);;
+                <-_k;;
+            *);;
+            ->...
+            (*
+                <-nrel_implication;;
+                ->rrel_if:...
+                (*  
+                    <-nrel_distinguished_by_political_isolation;;
+                    <-nrel_distinguished_by_historical_commonality;;
+                    <-_y(*_=>_k;;*);;
+                    <-_k;;  
+                *);;
+                ->rrel_else:...
+                (*
+                    <-nrel_is;;
+                    <-_x(*_=>_y;;*);;
+                    <-_y;;
+                *);;
+            *);;
+        *);;
+*);;
+*];;
